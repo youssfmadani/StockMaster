@@ -11,6 +11,7 @@ public class ProductDAO {
     public ProductDAO() throws ClassNotFoundException {
         try {
             // Database connection
+        	
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stockdb", "root", "admin");
             if (conn != null) {
@@ -25,6 +26,7 @@ public class ProductDAO {
     }
 
     // Add product
+    
     public void addProduct(Product product) {
         String sql = "INSERT INTO products (name, description, quantity, price, category) VALUES (?, ?, ?, ?, ?)";
         try {
@@ -45,6 +47,7 @@ public class ProductDAO {
     }
 
     // Get all products
+    
     public List<Product> getAllProducts() {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT * FROM products";
@@ -74,6 +77,7 @@ public class ProductDAO {
     }
 
     // Get product by ID (for editing)
+    
     public Product getProductById(int id) {
         Product product = null;
         String sql = "SELECT * FROM products WHERE id = ?";

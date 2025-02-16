@@ -18,6 +18,7 @@ public class ProductController extends HttpServlet {
             productDAO = new ProductDAO();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+            
         } // Initialize DAO
     }
 
@@ -26,12 +27,12 @@ public class ProductController extends HttpServlet {
 
         if ("delete".equals(action)) {
             int id = Integer.parseInt(request.getParameter("id"));
-            productDAO.deleteProduct(id); // Delete product
+            productDAO.deleteProduct(id);   // Delete product
             response.sendRedirect("index.jsp");
             return;
         } else if ("edit".equals(action)) {
             int id = Integer.parseInt(request.getParameter("id"));
-            Product product = productDAO.getProductById(id); // Get product by ID
+            Product product = productDAO.getProductById(id);   // Get product by ID
             request.setAttribute("product", product);
             RequestDispatcher dispatcher = request.getRequestDispatcher("edit.jsp");
             dispatcher.forward(request, response);
@@ -54,7 +55,7 @@ public class ProductController extends HttpServlet {
             String category = request.getParameter("category");
 
             Product product = new Product();
-            product.setId(id); // Set the ID to update the product
+            product.setId(id);   // Set the ID to update the product
             product.setName(name);
             product.setDescription(description);
             product.setQuantity(quantity);
@@ -79,7 +80,7 @@ public class ProductController extends HttpServlet {
             product.setPrice(price);
             product.setCategory(category);
 
-            productDAO.addProduct(product); // Add product
+            productDAO.addProduct(product);   // Add product
 
             response.sendRedirect("index.jsp");
         }

@@ -13,6 +13,7 @@
     <title>Product List</title>
 
     <!-- External Stylesheet -->
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -130,6 +131,7 @@
             <input type="number" name="price" placeholder="Price" required>
 
             <!-- Category Select Dropdown -->
+            
             <select name="category" required>
                 <option value="">Select Category</option>
                 <% for (String category : categories) { %>
